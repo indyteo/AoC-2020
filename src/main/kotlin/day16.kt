@@ -51,8 +51,8 @@ fun day16part1(fields: List<TicketField>, others: List<Ticket>): Int {
 
 fun day16part2(fields: List<TicketField>, self: Ticket, others: List<Ticket>): Long {
 	val valids = others.filter { it.valid }.plusElement(self)
-	fields.forEach { it.possibleIndexes.addAll(self.values.indices) }
 	for (field in fields) {
+		field.possibleIndexes.addAll(self.values.indices)
 		for (i in self.values.indices) {
 			var notOk = false
 			for (ticket in valids) {
