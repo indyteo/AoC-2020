@@ -23,9 +23,7 @@ fun main() {
 }
 
 data class TicketField(val name: String, val range1: IntRange, val range2: IntRange, val possibleIndexes: MutableSet<Int> = mutableSetOf()) {
-	val index
-		get() = possibleIndexes.first()
-	override fun toString() = "TicketField {$name} ($possibleIndexes) [$range1, $range2]"
+	val index get() = possibleIndexes.first()
 }
 data class Ticket(val values: List<Int>, var valid: Boolean = true)
 fun valid(field: TicketField, value: Int) = value in field.range1 || value in field.range2
